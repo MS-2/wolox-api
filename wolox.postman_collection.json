@@ -1,0 +1,268 @@
+{
+	"info": {
+		"_postman_id": "2d63ed0f-1f67-49ad-87cb-b71165b14f2f",
+		"name": "wolox",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "registrarse",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"juan\",\r\n    \"apellido\": \"rodriguez\",\r\n    \"username\": \"jose\",\r\n    \"password\": \"qwerty11\",\r\n    \"moneda\": \"ars\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/api/auth/signup",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"auth",
+								"signup"
+							]
+						},
+						"description": "registrar un usuario nuevo en el sistemas"
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"messi\",\r\n    \"password\": \"asdasdasd\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/api/auth/signin",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"auth",
+								"signin"
+							]
+						},
+						"description": "iniciar sesion "
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "coingecko",
+			"item": [
+				{
+					"name": "getcoins",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "{{x-token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:4000/api/coins",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"coins"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "testserver",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/api/test",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"test"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "addcoin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "{{x-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Ethereum\",\r\n    \"simbolo\": \"btc\",\r\n    \"precio\": \"997\",\r\n    \"icono\": \"https://assets.coingecko.com/coins/images/1/thumb/bitcoin.png?1547033579\",\r\n    \"lastUpdate\":\"2020-12-21T16:35:40.827Z\",\r\n    \"owner\": \"5fe0e89b5f9d7a2d64509216\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/api/user/addcoin",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"user",
+								"addcoin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getusers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/api/user",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "topcoinsDESC",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "{{x-token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:4000/api/user/coins/desc",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"user",
+								"coins",
+								"desc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "topcoinsASC",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "{{x-token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:4000/api/user/coins/asc",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"user",
+								"coins",
+								"asc"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

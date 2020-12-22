@@ -1,0 +1,19 @@
+<h1>registro de usuarios</h1>
+<form action="/api/auth/signup" method="POST">
+    <input type="text" placeholder="nombre" name="nombre">
+    <input type="text" placeholder="apellido" name="apellido">
+    <input type="text" placeholder="username" name="username">
+    <input type="password" placeholder="contraseña" name="password">
+    <select type="text" placeholder="moneda favorita" name="moneda">
+        <option value="eur">euro</option>
+        <option value="usd">dolar</option>
+        <option value="ars">peso argentino</option>
+    </select>
+    <input type="submit">
+</form>
+<h1>login</h1>
+<form action="/api/auth/signin" method="POST">
+    <input type="text" placeholder="username" name="username" value="messi">
+    <input type="password" placeholder="password" name="password" value="asdasdasd">
+    <input type="submit">
+</form>
